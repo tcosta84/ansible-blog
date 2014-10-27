@@ -2,7 +2,7 @@
 from __future__ import absolute_import
 
 import os
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "ansible_sample_app.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "ansible_blog.settings")
 
 from celery import Celery
 
