@@ -20,7 +20,7 @@ class ArticleListView(ListView):
             language=settings.LANGUAGE_CODE,
         ).order_by('-publish_date')
 
-        cache.set('article_list', article_list)
+        cache.set('article_list', article_list, None)
         return article_list
 
     def get_context_data(self, **kwargs):
@@ -30,7 +30,7 @@ class ArticleListView(ListView):
             blog = cache.get('blog')
         else:
             blog = models.Blog.objects.first()
-            cache.set('blog', blog)
+            cache.set('blog', blog, None)
 
         context['blog'] = blog
         return context
