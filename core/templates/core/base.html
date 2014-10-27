@@ -1,0 +1,38 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>{% block title %}{{ blog.title }}{% endblock %}</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-ui" />
+
+    <link rel="shortcut icon" href="{% static "core/favicon.ico" %}">
+
+    <link href="//fonts.googleapis.com" rel="dns-prefetch">
+    <link href="//www.google-analytics.com" rel="dns-prefetch">
+    <link href="//tcosta84.disqus.com" rel="dns-prefetch">
+
+    <link rel="stylesheet" type="text/css" href="{% static "core/css/main.css" %}" />
+    <link rel="stylesheet" type="text/css" href="{% static "core/vendor/css/pygments-default.css" %}" />
+</head>
+<body class="post-template">
+
+    <header class="site-head" {% if blog.cover %}style="background-image: url({{ blog.cover.url }})"{% endif %}>
+        <div class="site-head-content">
+            {% if blog.logo %}<a class="blog-logo" href="{{ blog.url }}"><img src="{{ blog.logo.url }}" alt="{{ blog.title }}" /></a>{% endif %}
+            <h1 class="blog-title"><a href="{{ blog.url }}">{{ blog.title }}</a></h1>
+            <h2 class="blog-description">{{ blog.description }}</h2>
+        </div>
+    </header>
+
+    <main class="content" role="main">
+        {% block body %}{% endblock %}
+    </main>
+
+    <script src="{% static "core/js/main.js" %}"></script>
+
+</body>
+</html>
