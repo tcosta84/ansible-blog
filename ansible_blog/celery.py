@@ -8,7 +8,7 @@ from celery import Celery
 
 from django.conf import settings
 
-app = Celery('ansible_sample_app', broker=settings.BROKER_URL)
+app = Celery('ansible_blog', broker=settings.BROKER_URL)
 
 # Using a string here means the worker will not have to
 # pickle the object when using Windows.
